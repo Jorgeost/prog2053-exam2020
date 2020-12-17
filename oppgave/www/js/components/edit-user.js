@@ -7,10 +7,13 @@ class EditUser extends LitElement {
     };
   }
 
-  render(){
+  render() {
     return html`
-      <form onsubmit="javascript: return false;" id="userForm" method="POST">
-      <div class="form-group pt-3 ml-5" style="width: 20rem;">
+    <head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+    <form onsubmit="javascript: return false;" id="userForm" method="POST">
+    <div class="form-group pt-3 ml-5" style="width: 20rem;">
       <label for="email">Email</label>
       <input class="form-control" id="uname" name="uname" type="text" value="${this.user.uname}" required>
       <input type="hidden" id="uid" name="uid" value="${this.user.uid}">
@@ -35,6 +38,8 @@ class EditUser extends LitElement {
 </form>
     `;
   }
+
+  //updates the information about a user
   updateUser(e) {
     //data from the HTML form
     const dataForm = new FormData(e.target.form);
@@ -51,5 +56,6 @@ class EditUser extends LitElement {
         }
       })
   }
+
 }
 customElements.define('edit-user', EditUser);
