@@ -70,5 +70,15 @@ services:
       - HUB_PORT=4444
       - SCREEN_WIDTH=1920
       - SCREEN_HEIGHT=1080
+      client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    ports:
+      - 8080:8080
+    volumes:
+      - ./client:/client
+    networks:
+        - default
 volumes:
   persistent:
